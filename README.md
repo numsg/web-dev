@@ -13,7 +13,7 @@
 
 ## 2. electron
 
-## 3. angular2(1)
+## 3. angular4(2/1)
 
 ## 4. vue.js
 
