@@ -34,7 +34,7 @@ Rxjs: Angular4框架引入Rxjs主要是为了实现响应式编程。
 
 * [Angular4 DI实现原理](https://github.com/numsg/web-dev/blob/master/03angular/docs/Angular4%20DI%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.md)
 
-* Angular4 注解实现原理(如@NgModule)（TODO）
+* [Angular4 注解实现原理(如@NgModule)](https://github.com/numsg/web-dev/blob/master/03angular/docs/Angular4%20%E6%B3%A8%E8%A7%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.md)
 
 * Angular4 变化检查实现原理（TODO）
 
