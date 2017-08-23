@@ -13,7 +13,7 @@
 
 ## 2. electron
 
-## 3. angular4(2/1)
+## 3. [angular](https://github.com/numsg/web-dev/tree/master/03angular)
 
 ## 4. vue.js
 
