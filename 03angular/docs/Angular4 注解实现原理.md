@@ -178,7 +178,7 @@ TypeDecorator方法内容非常的简单，把@Component传入的参数作为元
 2. 目标类中使用装饰器工厂，并传入相应的参数。
 3. 自动调用装饰器方法，把对应的元数据写入annotations属性中去。
 
-这里使用到了一个第三方的库[Reflect](https://github.com/tvcutsem/harmony-reflect/wiki#reflect)，其具体作用就是操作目标类上的元数据。
+这里使用到了一个es6的一个新特性Reflect[关于Reflect可以看这里](https://github.com/tvcutsem/harmony-reflect/wiki#reflect)，其具体作用就是操作目标类上的元数据。
 
 到这里，Angular注解的机制基本讲完了。
 
