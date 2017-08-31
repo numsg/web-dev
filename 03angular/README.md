@@ -28,7 +28,7 @@ Zone：Angular4框架是运行在Zone上的，主要是为里面一些异步执�
 Rxjs: Angular4框架引入Rxjs主要是为了实现响应式编程。
 
 
-有了以上基础，在来撸angular框架就比较简单了。
+有了以上基础，在来看angular框架就比较简单了。
 
 主要分下面几个点来剖析Angular4框架：
 
@@ -38,7 +38,7 @@ Rxjs: Angular4框架引入Rxjs主要是为了实现响应式编程。
 
 * Angular4 变化检查实现原理（TODO）
 
-* Angular4 启动一个Angular4应用程序前准备工作（TODO）
+* [Angular4 启动一个Angular4应用程序前准备工作](https://github.com/numsg/web-dev/blob/master/03angular/docs/%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AAAngular4%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%89%8D%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.md)
 
 * Angular4 启动一个Module的流程（TODO）
 
