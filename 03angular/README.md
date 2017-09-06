@@ -6,7 +6,7 @@ angular1把DI引入到前端框架，实现了数据的双向绑定及模块化�
 
 angular2框架是angular1框架的颠覆，可以说是推倒重来。主要是带来了性能的提升，启动时间加快；支持服务端渲染及webworker；支持移动端（安卓4.1，IOS7.1以 上）；可以灵活选择开发语言版本ES5/6，TypeScript，Dart。
 
-angular4是直接跳过了angular3，相对于angular2框架调整比较小，主要是修复按gular2的一些BUG。
+angular4是直接跳过了angular3，相对于angular2框架调整比较小，主要是修复angular2的一些BUG。
 
 ## 准备相关资料
 
