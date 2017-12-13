@@ -64,7 +64,7 @@ BOOL CTestOCXCtrl::IsInvokeAllowed (DISPID)
 	return true;
 }
 ```
-到此ocx编写完成。[源码地址]()
+到此ocx编写完成。[源码地址](https://github.com/numsg/web-dev/tree/master/10nodejs/src/ocx)
 
 ## 2. 编写调用ocx的js文件
 具体实现调用ocx的js代码如下，
@@ -80,4 +80,7 @@ try{
 	console.log(result);
 }
 ```
+调用成功结果如下图，
+![](./image/succes-callback.png)
+
 node-activex实践方案到此结束。
