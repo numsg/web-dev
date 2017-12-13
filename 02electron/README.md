@@ -13,5 +13,7 @@
 
 ## 6. electron集成websocket
 
-## 7. 一个标准的electron工程
+## 7. [electron 集成activex](./docs/electron-activex.md)
+
+## 8. 一个标准的electron工程
 
