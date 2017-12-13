@@ -1,0 +1,50 @@
+// TestOCX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(TestOCX.tlb)，该类型库将成为
+// TestOCX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(3F91FFE5-C6D9-4CB6-BE23-38E372106A16), version(1.0),
+  control ]
+library TestOCXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CTestOCXCtrl 的主调度接口
+	[ 
+		uuid(01DB9F27-7338-43E5-A9FD-C2373E9FF744)	
+	]
+	dispinterface _DTestOCX
+	{
+		properties:
+		methods:
+			[id(1)] LONG test(LONG a, LONG b);
+	};
+
+	//  CTestOCXCtrl 的事件调度接口
+
+	[ 
+		uuid(E0DD2328-0EA9-41CF-858D-9473039C33B3)	
+	]
+	dispinterface _DTestOCXEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CTestOCXCtrl 的类信息
+	[
+		uuid(64947E15-852E-496E-B3B1-ACCF5742BD4C)
+	]
+	coclass TestOCX
+	{
+		[default] dispinterface _DTestOCX;
+		[default, source] dispinterface _DTestOCXEvents;
+	};
+
+};
