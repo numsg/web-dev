@@ -1,6 +1,6 @@
 # Octotree Chrome插件离线安装
 
-Octotree插件下载地址
+[Octotree插件下载地址](https://github.com/numsg/web-dev/blob/master/11other/tools/Octotree-2.1.0-Crx4Chrome.com.crx)
 
 ## 1. 简单介绍
 Octotree 是国外程序员Buu Nguyen 做的一个 Chrome 插件。安装之后，浏览托管在Github上的项目，可看到左侧的树形结构，更方便查看代码…… （有点 IDE 的感觉，用着好来点个赞吧）
