@@ -42,6 +42,10 @@ npm install winax
 
 ![](./image/add-fun.png)
 
+切换到类视图，再添加一个简单对外方法TestCallback
+
+![](./image/add-fun1.png)
+
 编译成功后！在开始菜单中以管理员的账户运行cmd，执行OCX的注册
 ```
 regsvr32 testOCX.ocx
