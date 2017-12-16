@@ -180,7 +180,8 @@ LONG CTestOCXCtrl::TestCallback(LPCTSTR funName, IDispatch* idispatchCallback)
 		/*varArg[0].vt = VT_UINT; varArg[0].uintVal = 1;*/
 		CString strResult;
 		strResult = "numsg";
-		varArg[0].vt = VT_BSTR; varArg[0].bstrVal = strResult.AllocSysString();;
+		varArg[0].vt = VT_BSTR; 
+		varArg[0].bstrVal = strResult.AllocSysString();
 		m_pCallJSFun.InvokeN((DISPID)DISPID_VALUE, varArg, 1);
 	}
 	catch(...){
