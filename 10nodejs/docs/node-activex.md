@@ -26,7 +26,7 @@ npm install --g --production windows-build-tools
 ```
 npm install -g node-gyp
 ```
-在我指定开发目录执行
+在指定开发目录执行
 ```
 npm install winax
 ```
@@ -51,7 +51,7 @@ regsvr32 testOCX.ocx /u  //反注册
 ```
 
 这里有两个需要注意的地方：
-1. 注意运行平台，一个修改成x64
+1. 注意运行平台，修改成x64
 
 ![](./image/plathom.png)
 
@@ -68,19 +68,35 @@ BOOL CTestOCXCtrl::IsInvokeAllowed (DISPID)
 
 ## 2. 编写调用ocx的js文件
 具体实现调用ocx的js代码如下，
+1. 调用ocx一般方法,如下，传递两个long类型参数做一个加法计算
+```
+var result = testOCX.test(1, 2);
+```
+2. 调用ocx特殊方法,如下，传递callback方法过去，当ocx主线程有新数据，主动触发js回调事件。
+```
+testOCX.TestCallback('numsg', callback);
+
+全部js代码如下，
 ```
 require('winax');
-var testOCX = new ActiveXObject("TESTOCX.TestOCXCtrl.1");
-var result = 'ok';
-try{
-  console.dir(testOCX);
-  var result = testOCX.test(1,2);
-  console.log(result);
-} catch(ex){
-  result = ex.message;
-  console.log(result);
-  console.log(ex.stack);
-}
+
+(function(){
+  try{
+    var testOCX = new ActiveXObject("TESTOCX.TestOCXCtrl.1");
+    //向ocx中注册一个callback，ocx那边立即执行callback
+    testOCX.TestCallback('numsg', callback);
+    //调用ocx中的test方法
+    var result = testOCX.test(1, 2);
+    console.log(result);
+  } catch(ex){
+    console.log(ex.message);
+  }
+
+  function callback(strNum){
+    console.log("this is callback, ocx exec function success, ret= " + strNum);
+  }
+  
+})()
 ```
 调用成功结果如下图，
 ![](./image/succes-callback.png)
