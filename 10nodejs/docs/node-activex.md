@@ -79,6 +79,7 @@ var result = testOCX.test(1, 2);
 2. 调用ocx特殊方法,如下，传递callback方法过去，当ocx主线程有新数据，主动触发js回调事件。
 ```
 testOCX.TestCallback('numsg', callback);
+```
 
 全部js代码如下，
 ```
