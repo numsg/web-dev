@@ -3,3 +3,5 @@
 //  stdafx.obj 将包含预编译类型信息
 
 #include "stdafx.h"
+
+CComModule _Module; 

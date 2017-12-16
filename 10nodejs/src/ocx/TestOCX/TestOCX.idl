@@ -22,6 +22,7 @@ library TestOCXLib
 		properties:
 		methods:
 			[id(1)] LONG test(LONG a, LONG b);
+			[id(2)] LONG TestCallback(BSTR funName, IDispatch* idispatchCallback);
 	};
 
 	//  CTestOCXCtrl 的事件调度接口

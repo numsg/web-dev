@@ -36,3 +36,7 @@
 
 #endif // _WIN64
 
+
+#include <atlbase.h> 
+using namespace ATL;
+#include <atlcom.h>

@@ -6,6 +6,12 @@
 #include "TestOCXPropPage.h"
 #include "afxdialogex.h"
 
+#include <atlbase.h>  
+extern CComModule _Module;  
+#include <atlcom.h> 
+
+CComDispatchDriver m_pCallJSFun;  
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -22,6 +28,7 @@ END_MESSAGE_MAP()
 
 BEGIN_DISPATCH_MAP(CTestOCXCtrl, COleControl)
 	DISP_FUNCTION_ID(CTestOCXCtrl, "test", dispidtest, test, VT_I4, VTS_I4 VTS_I4)
+	DISP_FUNCTION_ID(CTestOCXCtrl, "TestCallback", dispidTestCallback, TestCallback, VT_I4, VTS_BSTR VTS_DISPATCH)
 END_DISPATCH_MAP()
 
 // 事件映射
@@ -159,3 +166,25 @@ LONG CTestOCXCtrl::test(LONG a, LONG b)
 	return a + b;
 }
 
+
+
+LONG CTestOCXCtrl::TestCallback(LPCTSTR funName, IDispatch* idispatchCallback)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	// TODO: 在此添加调度处理程序代码
+	m_pCallJSFun = idispatchCallback;
+
+	try{
+		VARIANT varArg[1];
+		/*varArg[0].vt = VT_UINT; varArg[0].uintVal = 1;*/
+		CString strResult;
+		strResult = "numsg";
+		varArg[0].vt = VT_BSTR; varArg[0].bstrVal = strResult.AllocSysString();;
+		m_pCallJSFun.InvokeN((DISPID)DISPID_VALUE, varArg, 1);
+	}
+	catch(...){
+		return 1;
+	}
+	return 0;
+}

@@ -41,9 +41,10 @@ protected:
 // 调度和事件 ID
 public:
 	enum {
+		dispidTestCallback = 2L,
 		dispidtest = 1L
 	};
 protected:
 	LONG test(LONG a, LONG b);
+	LONG TestCallback(LPCTSTR funName, IDispatch* idispatchCallback);
 };
-
