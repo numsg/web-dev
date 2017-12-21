@@ -20,7 +20,7 @@
 
 ## 2. [electron](https://github.com/numsg/web-dev/blob/master/02electron/README.md)
 
-## 3. [angular](https://github.com/numsg/web-dev/tree/master/03angular)
+## 3. [angular4](https://github.com/numsg/web-dev/tree/master/03angular)
 
 ## 4. vue.js
 
