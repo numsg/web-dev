@@ -181,7 +181,16 @@ beforeDestroy() {
 }
 
 /*
-* 正确改造方式，注释下面代码
+* 正确改造方式1
+* 在beforeDestroy释放this.$store.getters.newDigital.componentContentList
+*/
+
+beforeDestroy() {
+    this.$store.getters.newDigital.componentContentList = (state: any) =>{} ;
+}
+
+/*
+* 正确改造方式2，注释下面代码
 * 在使用componentContentList位置，直接使用this.$store.state.newDigital.componentContentLis
 */
 // @Getter('newDigital_componentContentList')
