@@ -133,35 +133,35 @@ k8s作为remote-agent进行构建， bamboo server直接调度现有私有k8s云
 
   1.点击【Create】,选择【Create Plan】.
 
-![1576736531131](./images/1576736531131.png)
+![](./images/1576736531131.png)
 
 
 
 2. 填写 **Project and buid plan name **各项相应信息。其中Plan name详细参考[devops定义](./devops定义.md)
 
-![1576740235793](./images/1576742326261.png)
+![](./images/1576742326261.png)
 
 
 
 3. 填写 **Link repository to new build plan** 各项信息。首先**Repository host** 项选择【Link new reopsitory】,然后在下拉框中再选择【Git】。
 
-![1576742406087](./images/1576742406087.png)
+![](./images/1576742406087.png)
 
 
 
 4. 根据实际填写【Git】的各项信息。注意**Authentication type** 项选择【Username and password】.填写完成并Test connection 成功后，点击【Configut Plan】.
 
-![1576742676024](./images/1576742676024.png)
+![](./images/1576742676024.png)
 
 5. 点击【Source Code Checkout】，修改其中内容后点击【Save】。
 
-   ![1576804983072](./images/1576804983072.png)
+   ![](./images/1576804983072.png)
 
 
 
 
 
-6. 点击【Add task】，在弹出页面中选择【Script】。![1576743008415](./images/1576743008415.png)
+6. 点击【Add task】，在弹出页面中选择【Script】。![](./images/1576743008415.png)
 
  
 
@@ -171,7 +171,7 @@ k8s作为remote-agent进行构建， bamboo server直接调度现有私有k8s云
 Task description  的内容为：compile
 Script body 的内容为：chmod +x gradlew && ./gradlew compileJava
 ```
-![1576804858431](./images/1576804858431.png)
+![](./images/1576804858431.png)
 
 
 
@@ -207,49 +207,49 @@ Script body的内容为：chmod +x gradlew && ./gradlew pushImage
 
 添加完成后的界面
 
-![1576745227755](./images/1576745227755.png)
+![](./images/1576745227755.png)
 
 
 
 9. (可选)修改Stage的名称,点击【Configure state】，在弹出页面填写相应名称后点击【Save】.
 
-![1576746183943](./images/1576746183943.png)
+![](./images/1576746183943.png)
 
-![1576746333319](./images/1576746333319.png)
+![](./images/1576746333319.png)
 
 10. 点击Default Job,在新的页面选择【Requirements】。
 
-![1576746428926](./images/1576746428926.png)
+![](./images/1576746428926.png)
 
-![1576746627074](./images/1576746627074.png)
+![](./images/1576746627074.png)
 
 11. 按照下图中的内容填写，然后点击 【Add】，**注意此处内容一定保持与图片中的一样**.
 
-![1576746817863](./images/1576746817863.png)
+![](./images/1576746817863.png)
 
-![1576747186359](./images/1576747186359.png)
+![](./images/1576747186359.png)
 
 12. 选择【Docker】,再选择【Docker container】,填写Docker image的内容为 `172.22.3.4/library/openjdk:8`，然后点击【save】.
 
-![1576747707106](./images/1576747707106.png)
+![](./images/1576747707106.png)
 
 13. 修改Job的名称。点击【Job details】,根据实际项目填写相应内容后，点击【save】。
 
-![1576748073137](./images/1576748073137.png)
+![](./images/1576748073137.png)
 
 14. 点击【Plan Configuration】页面更新后点击【Triggers】, **注意此处根据实际情况选择trigger**， 由于本示例属于日常构建，所以需要删除 `Repository polling` , 再点击【Add trigger】，选择 `Single daily build` ，填写相应内容后，点击【save trigger】。
 
-![1576748508406](./images/1576748508406.png)
+![](./images/1576748508406.png)
 
-![1576749125274](./images/1576749125274.png)
+![](./images/1576749125274.png)
 
-![1576749537614](./images/1576749537614.png)
+![](./images/1576749537614.png)
 
-![1576749837695](./images/1576749837695.png)
+![](./images/1576749837695.png)
 
 15. 点击【Actions】，选择【Enable plan】。（如果已是Enable状态，可忽略此步骤）
 
-![1576748319367](./images/1576748319367.png)
+![](./images/1576748319367.png)
 
 到此结束。
 
