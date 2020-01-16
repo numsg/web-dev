@@ -1,43 +1,50 @@
 devops定义
 <!-- TOC -->
 
+- [Stages定义](#stages定义)
 - [任务(task)定义](#任务task定义)
 - [环境准备plan定义(手动)](#环境准备plan定义手动)
 - [持续构建plan定义(自动)](#持续构建plan定义自动)
 - [持续交付定义(手动)](#持续交付定义手动)
 - [持续部署定义(手动或自动)](#持续部署定义手动或自动)
+- [构建任务选择原则](#构建任务选择原则)
 
 <!-- /TOC -->
 
 这里是以预案管理项目为例来介绍devops里面一些过程定义，可适用bamboo及jenkins。
 
-## .1. 任务(task)定义
-
+## .1. Stages定义
+两个Stages
 ```sh
-0. code-review/dependencies
-1. compile
-2. test
-3. report
-4. pack
-5. push-to-nexus || push-to-habor
-6. deploy
+1. xxx_environment（用于服务端/客户端构建时所需要的环境，比如前端需要 设置npm私服cnpm地址，node sass .node内网镜像文件）
+
 ```
 
-## .2. 环境准备plan定义(手动)
+## .2. 任务(task)定义
+
+```sh
+0. prepare environment
+1. compile
+2. test
+3. code quality check, report
+4. pack
+5. push
+6. deploy
+```
+`特别说明`
+1. 按正常情况 test任务应该在sonarquber之后，但是因为sonarquber任务需要把test相关测试报告一起上传到sonarquber平台，所以，将他们顺序调整。
+
+## .3. 环境准备plan定义(手动)
 1. 服务端环境镜像准备
 ```sh
-pms_backend-build-environment
+《项目名称》_backend_build-image_openjdk8
 ```
 
 2. 前端环境镜像准备
 ```sh
-pms_frontend-build-environment
+《项目名称》_frontend_build-image_node10130
 ```
 
-3. 其它环境镜像准备
-```sh
-pms_[other]-build-environment
-```
 `注意点`
 1. 如果部门的基础镜像已经满足构建需求，则无需创建plan
 
@@ -47,65 +54,20 @@ pms_[other]-build-environment
 
 4. 镜像规范应与项目镜像规范保持一致
 
-5. 本应该是静态代码质量坚持完成后，再执行单元测试，但由于执行sonarquber后需要把单元测试产生得报告上传至sonarquber平台，所以将test任务提前。
 
+## .4. 持续构建plan定义(自动)
+详见见下图
+![](./images/styles.png)
 
-## .3. 持续构建plan定义(自动)
+## .5. 持续交付定义(手动)
+详见见下图
+![](./images/styles.png)
 
-1. 每次推送代码构建，  plan命名【工程名称》+'_'+build】
-```sh
-pms-plan-preparation_build任务如下：
-0. [dependencies] //按需选择
-1. compile
-2. test
-3. sonarquber
-4. pack
-```
+## .6. 持续部署定义(手动或自动)
+详见见下图
+![](./images/styles.png)
 
+## .7. 构建任务选择原则
+1. 不能影响主机(bambooo agent)环境
+2. 尽量符合bamboo自己风格
 
-2. 每日构建，发布开发版，  plan命名【工程名称》+'_'+daily】
-```sh
-pms-plan-preparation_daily任务如下：
-0. [dependencies] //按需选择
-1. compile
-2. test
-3. sonarquber
-4. pack
-5. push-to-nexus || push-to-habor
-```
-
-## .4. 持续交付定义(手动)
-
-1. 发布版本给测试，plan命名【工程名称》+'_'+beta】
-```sh
-pms-plan-preparation_beta任务如下：
-0. [dependencies] //按需选择
-1. compile
-2. test
-3. sonarquber
-4. pack
-5. push-to-nexus || push-to-habor
-```
-2. 发布版本给测试，  plan命名【工程名称》+'_'+release】
-```sh
-pms-plan-preparation_release任务如下：
-0. [dependencies] //按需选择
-1. compile
-2. test
-3. sonarquber
-4. pack
-5. push-to-nexus || push-to-habor
-```
-
-## .5. 持续部署定义(手动或自动)
-1. 部署到开发环境, plan命名【工程名称》+'_'+deploy-dev】
-```sh
-pms-plan-preparation_deploy-dev任务如下：
-6. deploy
-```
-
-2. 部署到开发环境【工程名称》+'_'+deploy-prod】
-```sh
-pms-plan-preparation_deploy-prod任务如下：
-6. deploy
-```
