@@ -11,7 +11,7 @@
     - [bamboo remote agent准备](#bamboo-remote-agent准备)
     - [基础环境构建](#基础环境构建)
     - [项目软件构建(以持续构建为例)](#项目软件构建以持续构建为例)
-        - [每日构建，发布开发版](#每日构建发布开发版)
+        - [每日构建，发布开发版](#每日构建，发布开发版)
     - [参考](#参考)
 
 <!-- /TOC -->
@@ -129,7 +129,9 @@ k8s作为remote-agent进行构建， bamboo server直接调度现有私有k8s云
 
 ### .3.3. 项目软件构建(以持续构建为例)
 
-#### .3.3.1. 每日构建，发布开发版
+#### .3.3.1.每日构建，发布开发版
+
+#### 服务端
 
   1.点击【Create】,选择【Create Plan】.
 
@@ -155,13 +157,15 @@ k8s作为remote-agent进行构建， bamboo server直接调度现有私有k8s云
 
 5. 点击【Source Code Checkout】，修改其中内容后点击【Save】。
 
-   ![](./images/1576804983072.png)
+   ![1579232871537](.\images\1579232871537.png)
 
 
 
 
 
-6. 点击【Add task】，在弹出页面中选择【Script】。![](./images/1576743008415.png)
+6. 点击【Add task】，在弹出页面中选择【Script】。    
+
+     ![](./images/1576743008415.png)
 
  
 
@@ -171,7 +175,7 @@ k8s作为remote-agent进行构建， bamboo server直接调度现有私有k8s云
 Task description  的内容为：compile
 Script body 的内容为：chmod +x gradlew && ./gradlew compileJava
 ```
-![](./images/1576804858431.png)
+![1579233133605](.\images\1579233133605.png)
 
 
 
@@ -184,10 +188,10 @@ Task description的内容为：test
 Script body的内容为：chmod +x gradlew && ./gradlew test
 ```
 
-  ② `sonarqube` 任务：
+ ② `sonarqube` 任务：
 
 ```
-Task description的内容为：sonarqube 
+Task description的内容为：code quality check, report 
 Script body的内容为：chmod +x gradlew && ./gradlew sonarqube 
 ```
 
@@ -198,60 +202,141 @@ Task description的内容为： pack
 Script body的内容为：chmod +x gradlew && ./gradlew build 
 ```
 
-④`pushImage`任务：
+④`push`任务：
 
 ```
-Task description的内容为： push-to-habor 
+Task description的内容为： push 
 Script body的内容为：chmod +x gradlew && ./gradlew pushImage 
 ```
 
 添加完成后的界面
 
-![](./images/1576745227755.png)
+![1579240592322](.\images\1579240592322.png)
 
+9. 添加**clean**任务。点击【Add task】,选择`Clean working directiry task`。内容填写如下，然后点击【Save】。
 
+```
+Task description的内容为： clean
+```
 
-9. (可选)修改Stage的名称,点击【Configure state】，在弹出页面填写相应名称后点击【Save】.
+![1579240726182](.\images\1579240726182.png)
+
+![1579240937946](.\images\1579240937946.png)
+
+10. 将`Clean working directiry task`拖拽到Final tasks下, 然后点击【Save and continue】。
+
+![1579242205728](.\images\1579242205728.png)
+
+11. 修改Stage的名称,点击【Configure state】，在弹出页面按照规范填写相应名称和描述后点击【Save】.
 
 ![](./images/1576746183943.png)
 
-![](./images/1576746333319.png)
+![](.\images\1579242346758.png)
 
 10. 点击Default Job,在新的页面选择【Requirements】。
 
-![](./images/1576746428926.png)
+![1579242424311](.\images\1579242424311.png)
 
-![](./images/1576746627074.png)
+![1579242463213](.\images\1579242463213.png)
 
 11. 按照下图中的内容填写，然后点击 【Add】，**注意此处内容一定保持与图片中的一样**.
 
-![](./images/1576746817863.png)
+![](.\images\1579242577088.png)
 
-![](./images/1576747186359.png)
+![](.\images\1579242653521.png)
 
 12. 选择【Docker】,再选择【Docker container】,填写Docker image的内容为 `172.22.3.4/library/openjdk:8`，然后点击【save】.
 
-![](./images/1576747707106.png)
+![](.\images\1579242783821.png)
 
-13. 修改Job的名称。点击【Job details】,根据实际项目填写相应内容后，点击【save】。
+13. 修改Job的名称。点击【Job details】,根据实际项目按照规范填写填写相应内容后，点击【save】。
 
-![](./images/1576748073137.png)
+![](.\images\1579243068395.png)
 
 14. 点击【Plan Configuration】页面更新后点击【Triggers】, **注意此处根据实际情况选择trigger**， 由于本示例属于日常构建，所以需要删除 `Repository polling` , 再点击【Add trigger】，选择 `Single daily build` ，填写相应内容后，点击【save trigger】。
 
-![](./images/1576748508406.png)
+![1579243479101](.\images\1579243479101.png)
 
-![](./images/1576749125274.png)
+![1579243514883](.\images\1579243514883.png)
 
-![](./images/1576749537614.png)
+![1579243542576](.\images\1579243542576.png)
 
-![](./images/1576749837695.png)
+![1579243599564](.\images\1579243599564.png)
 
 15. 点击【Actions】，选择【Enable plan】。（如果已是Enable状态，可忽略此步骤）
 
-![](./images/1576748319367.png)
+![1579243798526](.\images\1579243798526.png)
 
-到此结束。
+到此创建结束。
+
+可通过点击【Run plan】进行测试：
+
+![1579243976191](.\images\1579243976191.png)
+
+#### 客户端
+
+以pms-web_daily为例，创建Plan请参考3.3.1.章节。
+
+**需要注意的地方（根据实际情况）：**
+
+1、基础镜像使用的是`172.22.3.4/library/node:10.13.0`。
+
+![1579244336976](.\images\1579244336976.png)
+
+2、多一个环境准备的task任务：
+
+![1579244412732](.\images\1579244412732.png)
+
+3、web端的task任务填写内容（**仅做参考，请以实际为例**）：
+
+① `prepare environment`任务：
+
+```
+Task description的内容为：prepare environment
+Script body的内容为：
+	npm config set registry http://172.22.24.36:7001/
+	npm config set SASS_BINARY_SITE http://172.22.24.51:8081/nexus/content/sites/gs-assets/node/sass/
+	npm cache clean --force
+```
+
+② ` compile` 任务：
+
+```
+Task description的内容为：compile 
+Script body的内容为：
+	npm run install-g2
+	npm run install-sass
+	npm install
+	npm run compile
+```
+
+③ ` test` 任务：
+
+```
+Task description的内容为：test
+Script body的内容为：npm run test
+```
+
+④ `sonarqube` 任务：
+
+```
+Task description的内容为：code quality check, report 
+Script body的内容为：npm run sonar
+```
+
+⑤ `pack` 任务（打jar包）：
+
+```
+Task description的内容为： pack
+Script body的内容为：npm run build
+```
+
+⑥ `push`任务：
+
+```
+Task description的内容为： push 
+Script body的内容为：npm run docker 
+```
 
 ### .3.4. 参考
 
