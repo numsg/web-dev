@@ -90,6 +90,8 @@ trim_trailing_whitespace = true
   "bracketSpacing": true  // 在对象，数组括号与文字之间加空格 "{ foo: bar }"
 }
 ```
+`注意：Prettier与editconfig对文件代码约束有重复地方，应该以editconfig配置优先，来调整Prettier配置以适配`
+
 3. tslint
 主要用来校验静态代码质量，快速发现本地代码质量问题
 推荐配置如下，规则说明详细见官网[tslint-rules](https://palantir.github.io/tslint/rules/)
@@ -217,6 +219,8 @@ trim_trailing_whitespace = true
   }
 }
 ```
+`注意：tslint与Prettier对文件代码约束有重复地方，应该以Prettier配置优先，来调整tslint配置以适配`
+
 4. Document This(非必须), 为代码生成注释
 
 ```js
