@@ -5,8 +5,8 @@
     - [基础环境](#%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83)
     - [开发工具](#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7)
     - [插件](#%E6%8F%92%E4%BB%B6)
-    - [vscode插件](#vscode%E6%8F%92%E4%BB%B6)
-    - [chrome插件](#chrome%E6%8F%92%E4%BB%B6)
+        - [vscode插件](#vscode%E6%8F%92%E4%BB%B6)
+        - [chrome插件](#chrome%E6%8F%92%E4%BB%B6)
 
 <!-- /TOC -->
 
@@ -39,7 +39,7 @@
 1. 为开发提供便捷操作，提升开发效率
 2. 格式化代码，保证代码风格统一
 
-## vscode插件
+### vscode插件
 1. EditorConfig for VS Code，主要用来格式化文件
 推荐配置如下：
 ``` js
@@ -262,6 +262,6 @@ Generates documentation for whatever the caret is on or inside of.
 
 6. npm Intellisense(非必须), 依赖便捷导入工具.
 
-## chrome插件
+### chrome插件
 
 1. Postman(非必须)，调试服务端API工具
