@@ -1,6 +1,16 @@
-## 前端开发环境
+# 前端开发环境
+<!-- TOC -->
 
-## 1. 基础环境
+- [前端开发环境](#%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)
+    - [基础环境](#%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83)
+    - [开发工具](#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7)
+    - [插件](#%E6%8F%92%E4%BB%B6)
+    - [vscode插件](#vscode%E6%8F%92%E4%BB%B6)
+    - [chrome插件](#chrome%E6%8F%92%E4%BB%B6)
+
+<!-- /TOC -->
+
+## 基础环境
 
 ```js
 1. node  // 保证前端开发人员node版本及npm版本一致
@@ -11,7 +21,7 @@
   配置完成后,即可通过npm指令安装npm包
    或者，在当前用户文件夹下，创建文件.npmrc（新建文件时，应命名为..npmrc，否则会提示“必须键入文件名”），路径如: C:\Users\xxx\.npmrc。在文件中加入如下内容`registry=http://172.22.24.36:7001/`
 
-## 2. 开发工具
+## 开发工具
 
 ```js
 1. vscode  // 尽量保证前端开发人员vscode版本一致，使用官方最新稳定版
@@ -19,7 +29,7 @@
 3. chrome  // 尽量保证前端开发人员chrome版本一致，版本取决于项目要求
 ```
 
-## 3. 插件
+## 插件
 
 `vscode插件内网安装方式：`
 1. 在外网vscode安装后，拷贝C:\Users\xxx\.vscode\extensions文件夹下的内容
@@ -29,7 +39,7 @@
 1. 为开发提供便捷操作，提升开发效率
 2. 格式化代码，保证代码风格统一
 
-## 3.1 vscode插件
+## vscode插件
 1. EditorConfig for VS Code，主要用来格式化文件
 推荐配置如下：
 ``` js
@@ -252,6 +262,6 @@ Generates documentation for whatever the caret is on or inside of.
 
 6. npm Intellisense(非必须), 依赖便捷导入工具.
 
-## 3.1 chrome插件
+## chrome插件
 
 1. Postman(非必须)，调试服务端API工具
