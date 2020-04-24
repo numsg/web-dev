@@ -21,7 +21,7 @@
 
 ## 3. 插件
 
-`内网安装方式：`
+`vscode插件内网安装方式：`
 1. 在外网vscode安装后，拷贝C:\Users\xxx\.vscode\extensions文件夹下的内容
 2. 覆盖内网机器 C:\Users\xxx\.vscode\extensions 内容即可
 
