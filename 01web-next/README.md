@@ -2,30 +2,30 @@
 
 1. [前端开发环境](./evn.md)
 
-2. ts 技术- `TODO 持续更新`
+2. [现有工程目录结构含义](./project-strcutre.md)
 
-3. [现有工程目录结构含义](./project-strcutre.md)
+3. [工程规范](./project-style.md)
 
-4. [工程规范](./project-style.md)
+4. [前端开发标准步骤](./dev-stages.md)
 
-5. [前端开发标准步骤](./dev-stages.md)
+5. [views-vs-components](./views-vs-components.md)
 
-6. [views-vs-components](./views-vs-components.md)
+6. [数据绑定](./data-bind.md)
 
-7. [数据绑定](./data-bind.md)
+7. [数据传递](./data-transfer.md)
 
-8. [数据传递](./data-transfer.md)
+8. vuex- `TODO 持续更新`
 
-9. vuex- `TODO 持续更新`
+9. VUE生命周期- `TODO 持续更新`
 
-10. 生命周期事件- `TODO 持续更新`
+10. 计算属性与属性监听- `TODO 持续更新`
 
-11. 计算属性和属性监听- `TODO 持续更新`
+11. 插槽- `TODO 持续更新`
 
-12. 插槽- `TODO 持续更新`
+12. 持续构建- `TODO 持续更新`
 
-13. 持续构建- `TODO 持续更新`
+13. 全局样式和局部样式- `TODO 持续更新`
 
-14. 全局样式和局部样式- `TODO 持续更新`
+14. 开发小技巧- `TODO 持续更新`
 
-15. 开发小技巧- `TODO 持续更新`
+15. ts 技术- `TODO 持续更新`

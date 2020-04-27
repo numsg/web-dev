@@ -192,6 +192,37 @@ getters: {
 
 ## 5. 其它(一些发布订阅的方式，比如rxjs等)
 
+### 5.1 rxevent
+
+**订阅**
+
+```typescript
+rxevent.subscribe(RxEventType.PLOTTOOL_ONENDDRAW, 'region-plot-service', (drawElement: any) => {
+    elementPlot = drawElement;
+    areaMeasure();
+    addTooltip();
+    plotFinished = true;
+    rxevent.unsubscribe(RxEventType.PLOTTOOL_ONENDDRAW, 'region-plot-service');
+});
+```
+
+**发布**
+
+```typescript
+// 标绘完成事件
+g2.plot.PlotTool.prototype.onEndDraw = (drawElement: any) => {
+    rxevent.publish(RxEventType.PLOTTOOL_ONENDDRAW, drawElement);
+};
+```
+
+**取消订阅**
+
+```typescript
+rxevent.unsubscribe(RxEventType.PLOTTOOL_ONENDDRAW, 'region-plot-service');
+```
+
+### 5.2 emitter
+
 ```ts
 function broadcast(componentName, eventName, params) {
   this.$children.forEach(child => {
