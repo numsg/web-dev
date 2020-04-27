@@ -140,7 +140,7 @@ export const DisposalEvents = {
 ### 9、src/views
 
 * 页面不需要-view做结尾，命名参考第2条（src/api文件层次结构）。
-* 详细参考赵荡整理的 view/components文件夹边界
+* [详细参考](./views-vs-components.md)
 
 #### 10. 常量一定要加注释
 
@@ -313,9 +313,9 @@ export default class ShiftChange extends Vue {
   },
 ```
 
-#### 17. 开发顺序(重要)
+#### 17. 标准开发流程(重要)
 
-拆分组件, 确定组件名, 目录名, 目录位置 --- 配置路由, 确定一级路由, 二级路由 --- 实现功能(数据传递, 优先考虑vuex)
+[详细参考](./dev-stages.md)
 
 #### 18. store里的modules应该加上 -store后缀
 
