@@ -8,19 +8,19 @@
 
 4. [前端开发标准步骤](./dev-stages.md)
 
-5. [views-vs-components](./views-vs-components.md)
+5. [views-vs-components](./views-vs-components.md) - zhaodang
 
-6. [数据绑定](./data-bind.md)
+6. [数据绑定](./data-bind.md) - zhaodang
 
-7. [数据传递](./data-transfer.md)
+7. [数据传递](./data-transfer.md) - zhaodang
 
-8. vuex- `TODO 持续更新`
+8. [VUE生命周期](./vue-component-life-circle.md) - lixiang
 
-9. VUE生命周期- `TODO 持续更新`
+9. [计算属性与属性监听](./vue-compute-watch.md) - lixiang
 
-10. 计算属性与属性监听- `TODO 持续更新`
+10. [插槽](./vue-slot.md) - lixiang
 
-11. 插槽- `TODO 持续更新`
+11. vuex- `TODO 持续更新`
 
 12. 持续构建- `TODO 持续更新`
 
