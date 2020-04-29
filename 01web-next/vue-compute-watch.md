@@ -1,9 +1,3 @@
----
-title: Vue Compute & Watch
-created: '2020-04-24T09:32:21.842Z'
-modified: '2020-04-27T05:38:59.307Z'
----
-
 # Vue Compute & Watch
 
 ## 1. Compute

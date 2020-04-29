@@ -1,9 +1,3 @@
----
-title: Vue Component Life Circle
-created: '2020-04-24T09:31:12.066Z'
-modified: '2020-04-27T03:05:05.709Z'
----
-
 # Vue Component Life Circle
 
 ## 1. mounted
@@ -28,6 +22,36 @@ mounted() {
 }
 ```
 
+***
+
+如果url中带有参数，例如`/incident/:incidentId`。还需要在路由组件的`beforeRouteUpdate`勾子中获取数据。警情id参数改变时只会触发`beforeRouteUpdate`
+```ts
+mounted() {
+  this.getData();
+}
+
+beforeRouteUpdate(to: Route, from: Route, next: NextFn) {
+  this.getData();
+  next();
+}
+
+
+private getData() {
+  const incidentId = this.$route.params.incidentId;
+  axios.get<Incident>('http://xxx/' + incidentId).then((result) => {
+    this.incident = result;
+  });
+}
+```
+
+路由组件中使用路由勾子需要注册
+```ts
+Component.registerHooks(['beforeRouteUpdate']);
+
+@Component
+export default class HelloWorld extends Vue {}
+```
+
 
 ## 2. beforeDestroy
 组件销毁前执行。要在该方法内取消订阅事件
@@ -48,12 +72,22 @@ mounted() {
     // do somethings
   });
 
+  const handleMouseWhell = () => {
+    // do something
+  }
+
+  // 监听dom事件
+  window.addEventListener('mousewheel', handleMouseWhell);
+
   this.$once('hook:beforeDestroy', () => {
     // 清除定时器
     clearInterval(timerId);
 
     // 取消Observable订阅
     subscription.unsubscribe();
+
+    // 移除事件监听
+    window.removeEventListener('mousewheel', handleMouseWhell);
   });
 }
 ```

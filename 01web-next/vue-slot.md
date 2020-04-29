@@ -1,9 +1,3 @@
----
-title: Vue Slot
-created: '2020-04-24T09:32:39.442Z'
-modified: '2020-04-27T07:31:34.004Z'
----
-
 # Vue Slot
 
 ### 1. 当组件模板的一部分内容需要父组件决定时，可以使用`slot`
@@ -147,8 +141,3 @@ modified: '2020-04-27T07:31:34.004Z'
   </template>
 </current-user>
 ```
-
-
-
-
-
