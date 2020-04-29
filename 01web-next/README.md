@@ -20,7 +20,7 @@
 
 10. [插槽](./vue-slot.md) - lixiang
 
-11. vuex- `TODO 持续更新`
+11. [vuex](./vuex.md) - lixiang
 
 12. 持续构建- `TODO 持续更新`
 
